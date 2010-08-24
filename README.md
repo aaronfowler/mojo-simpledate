@@ -8,7 +8,7 @@ Simpledate outputs the current date or the page's last modified date using PHP f
 
 ##Installation
 
-Copy the add-on in a folder named 'simpledate' in system/mojomotor/third_party
+Copy the addon in a folder named 'simpledate' in system/mojomotor/third_party
 
 ##Usage
 
