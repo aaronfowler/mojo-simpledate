@@ -1,6 +1,6 @@
 # Simpledate
 
-Version: 1.0
+Version: 1.1
 
 Author: [Aaron Fowler](http://twitter.com/adfowler)
 
@@ -29,3 +29,9 @@ Both tags accept a format parameter using PHP formatting options:
 will return something like "2010-08-01"
 
 If no format parameter is used, Simpledate will default to "F j Y" (e.g. August 1 2010).
+
+Both tags accept an offset parameter in seconds:
+
+    {mojo:simpledate:get offset="172800"}
+
+will will add 2 days (60 * 60 * 24 * 2) to the current date.  Prefix the seconds with a negative sign to subtract time, e.g., offset="-172800".

@@ -5,13 +5,13 @@
  *
  * @package		MojoMotor
  * @subpackage	Addons
- * @version		1.0
+ * @version		1.1
  * @author		Aaron Fowler
  * @link		http://twitter.com/adfowler
  */
 class Simpledate
 {
-	var $addon_version = '1.0';
+	var $addon_version = '1.1';
 	var $display_name = 'Simpledate';
 
 	// --------------------------------------------------------------------
@@ -41,11 +41,13 @@ class Simpledate
 	function get($tag = array())
 	{
 		$format = 'F j Y';
+		$time = isset($tag['parameters']['time']) ? $tag['parameters']['time'] : time();
+		$time = $time + ($tag['parameters']['offset']);
 		if (isset($tag['parameters']['format']))
 		{
 			$format = $tag['parameters']['format'];
 		}
-		return date($format, isset($tag['parameters']['time']) ? $tag['parameters']['time'] : time());
+		return date($format, $time);
 	}
 	
 	/**
