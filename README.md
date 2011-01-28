@@ -1,6 +1,6 @@
 # Simpledate
 
-Version: 1.1
+Version: 1.2
 
 Author: [Aaron Fowler](http://twitter.com/adfowler)
 

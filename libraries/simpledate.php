@@ -5,14 +5,15 @@
  *
  * @package		MojoMotor
  * @subpackage	Addons
- * @version		1.1
+ * @version		1.2
  * @author		Aaron Fowler
  * @link		http://twitter.com/adfowler
  */
 class Simpledate
 {
-	var $addon_version = '1.1';
+	var $addon_version = '1.2';
 	var $display_name = 'Simpledate';
+	private $mojo;
 
 	// --------------------------------------------------------------------
 
@@ -62,10 +63,11 @@ class Simpledate
 	 */
 	function get_last_modified($tag = array())
 	{
-		$CI =& get_instance();
-		if ($CI->mojomotor_parser->page->page_info->last_modified > 0)
+		$this->mojo =& get_instance();
+		
+		if ($this->mojo->mojomotor_parser->page->last_modified() > 0)
 		{
-			$tag['parameters']['time'] = $CI->mojomotor_parser->page->page_info->last_modified;
+			$tag['parameters']['time'] = $this->mojo->mojomotor_parser->page->last_modified();
 			return $this->get($tag);
 		}
 		else
