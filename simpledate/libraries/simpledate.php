@@ -5,13 +5,13 @@
  *
  * @package		MojoMotor
  * @subpackage	Addons
- * @version		1.2
+ * @version		1.2.1
  * @author		Aaron Fowler
  * @link		http://twitter.com/adfowler
  */
 class Simpledate
 {
-	var $addon_version = '1.2';
+	var $addon_version = '1.2.1';
 	var $display_name = 'Simpledate';
 	private $mojo;
 
@@ -43,7 +43,7 @@ class Simpledate
 	{
 		$format = 'F j Y';
 		$time = isset($tag['parameters']['time']) ? $tag['parameters']['time'] : time();
-		$time = $time + ($tag['parameters']['offset']);
+		$time = $time + (isset($tag['parameters']['offset']) ? $tag['parameters']['offset'] : 0);
 		if (isset($tag['parameters']['format']))
 		{
 			$format = $tag['parameters']['format'];
